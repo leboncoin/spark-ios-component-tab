@@ -3,19 +3,20 @@
 
 import PackageDescription
 
+// swiftlint:disable all
 let package = Package(
-    name: "Spark___COMPONENT_NAME___",
+    name: "SparkTab",
     platforms: [
         .iOS(.v15)
     ],
     products: [
         .library(
-            name: "Spark___COMPONENT_NAME___",
-            targets: ["Spark___COMPONENT_NAME___"]
+            name: "SparkTab",
+            targets: ["SparkTab"]
         ),
         .library(
-            name: "Spark___COMPONENT_NAME___Testing",
-            targets: ["Spark___COMPONENT_NAME___Testing"]
+            name: "SparkTabTesting",
+            targets: ["SparkTabTesting"]
         )
     ],
     dependencies: [
@@ -28,69 +29,82 @@ let package = Package(
            url: "https://github.com/adevinta/spark-ios-theming.git",
            // path: "../spark-ios-theming"
            /*version*/ "0.0.1"..."999.999.999"
+       ),
+       .package(
+           url: "https://github.com/adevinta/spark-ios-component-badge.git",
+           // path: "../spark-ios-theming"
+           /*version*/ "0.0.1"..."999.999.999"
        )
     ],
     targets: [
         .target(
-            name: "Spark___COMPONENT_NAME___",
+            name: "SparkTab",
             dependencies: [
                 .product(
                     name: "SparkCommon",
-                    package: "spm-poc-common"
+                    package: "spark-ios-common"
                 ),
                 .product(
                     name: "SparkTheming",
-                    package: "spm-poc-theming"
+                    package: "spark-ios-theming"
+                ),
+                .product(
+                    name: "SparkBadge",
+                    package: "spark-ios-component-badge"
                 )
-            ]
+            ],
+            path: "Sources/Core"
         ),
         .target(
-            name: "Spark___COMPONENT_NAME___Testing",
+            name: "SparkTabTesting",
             dependencies: [
-                "Spark___COMPONENT_NAME___",
+                "SparkTab",
                 .product(
                     name: "SparkCommon",
-                    package: "spm-poc-common"
+                    package: "spark-ios-common"
                 ),
                 .product(
                     name: "SparkCommonTesting",
-                    package: "spm-poc-common"
+                    package: "spark-ios-common"
                 ),
                 .product(
                     name: "SparkThemingTesting",
-                    package: "spm-poc-theming"
+                    package: "spark-ios-theming"
                 ),
                 .product(
                     name: "SparkTheme",
-                    package: "spm-poc-theming"
+                    package: "spark-ios-theming"
                 )
-            ]
+            ],
+            path: "Sources/Testing"
         ),
         .testTarget(
-            name: "Spark___COMPONENT_NAME___UnitTests",
+            name: "SparkTabUnitTests",
             dependencies: [
-                "Spark___COMPONENT_NAME___",
-                "Spark___COMPONENT_NAME___Testing",
+                "SparkTab",
+                "SparkTabTesting",
                 .product(
                     name: "SparkCommonTesting",
-                    package: "spm-poc-common"
+                    package: "spark-ios-common"
                 ),
                 .product(
                     name: "SparkThemingTesting",
-                    package: "spm-poc-theming"
+                    package: "spark-ios-theming"
                 )
-            ]
+            ],
+            path: "Tests/UnitTests"
         ),
         .testTarget(
-            name: "Spark___COMPONENT_NAME___SnapshotTests",
+            name: "SparkTabSnapshotTests",
             dependencies: [
-                "Spark___COMPONENT_NAME___",
-                "Spark___COMPONENT_NAME___Testing",
+                "SparkTab",
+                "SparkTabTesting",
                 .product(
                     name: "SparkCommonSnapshotTesting",
-                    package: "spm-poc-common"
-                ),
-            ]
+                    package: "spark-ios-common"
+                )
+            ],
+            path: "Tests/SnapshotTests"
         ),
     ]
 )
