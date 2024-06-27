@@ -10,7 +10,7 @@ import Combine
 @testable import SparkTab
 @_spi(SI_SPI) @testable import SparkTabTesting
 @_spi(SI_SPI) import SparkCommon
-import SparkThemingTesting
+@_spi(SI_SPI) import SparkThemingTesting
 import XCTest
 
 final class TabViewModelTests: XCTestCase {

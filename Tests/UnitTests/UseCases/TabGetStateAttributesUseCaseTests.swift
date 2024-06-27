@@ -9,7 +9,7 @@
 @testable import SparkTab
 @_spi(SI_SPI) @testable import SparkTabTesting
 import XCTest
-import SparkThemingTesting
+@_spi(SI_SPI) import SparkThemingTesting
 import SparkTheming
 
 final class TabGetStateAttributesUseCaseTests: XCTestCase {
