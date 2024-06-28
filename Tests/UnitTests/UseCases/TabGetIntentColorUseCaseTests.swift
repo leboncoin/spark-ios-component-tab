@@ -8,7 +8,7 @@
 
 @testable import SparkTab
 import XCTest
-import SparkThemingTesting
+@_spi(SI_SPI) import SparkThemingTesting
 
 final class TabGetIntentColorUseCaseTests: XCTestCase {
 

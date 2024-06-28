@@ -95,6 +95,12 @@ public final class TabUIView: UIControl {
         didSet {
             self.viewModel.setIsEnabled(self.isEnabled)
             self.segments.forEach{ $0.isEnabled = self.isEnabled }
+
+            if self.isEnabled {
+                self.accessibilityTraits.remove(.notEnabled)
+            } else {
+                self.accessibilityTraits.insert(.notEnabled)
+            }
         }
     }
 
@@ -518,6 +524,7 @@ public final class TabUIView: UIControl {
     }
 
     private func setupAccessibility() {
+        self.accessibilityIdentifier = TabAccessibilityIdentifier.tab
         self.accessibilityTraits.insert(.tabBar)
         self.isAccessibilityElement = false
         self.accessibilityContainerType = .semanticGroup

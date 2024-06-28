@@ -12,7 +12,7 @@ import XCTest
 @_spi(SI_SPI) import SparkCommon
 @_spi(SI_SPI) import SparkCommonTesting
 import SparkTheme
-import SparkThemingTesting
+@_spi(SI_SPI) import SparkThemingTesting
 
 final class TabItemUIViewTests: TestCase {
 
