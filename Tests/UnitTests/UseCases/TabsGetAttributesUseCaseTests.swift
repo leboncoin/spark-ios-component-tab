@@ -3,7 +3,7 @@
 //  SparkTabTests
 //
 //  Created by michael.zimmermann on 01.09.23.
-//  Copyright © 2023 Adevinta. All rights reserved.
+//  Copyright © 2023 Leboncoin. All rights reserved.
 //
 
 @testable import SparkTab

@@ -3,7 +3,7 @@
 //  SparkTab
 //
 //  Created by alican.aycil on 24.07.23.
-//  Copyright © 2023 Adevinta. All rights reserved.
+//  Copyright © 2023 Leboncoin. All rights reserved.
 //
 
 import Combine
