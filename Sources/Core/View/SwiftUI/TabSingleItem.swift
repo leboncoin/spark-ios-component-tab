@@ -45,6 +45,6 @@ struct TabSingleItem: View {
         }
         .disabled(!self.itemViewModel.isEnabled)
         .id(self.content.id)
-        .accessibilityIdentifier("\(TabAccessibilityIdentifier.tabItem)_\(index)")
+        .accessibilityIdentifier("\(TabAccessibilityIdentifier.tabItem)-\(index)")
     }
 }

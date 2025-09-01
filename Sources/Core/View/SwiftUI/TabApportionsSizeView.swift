@@ -68,6 +68,7 @@ struct TabApportionsSizeView: View {
             ScrollView(self.axis, showsIndicators: false) {
                 self.tabItems()
                     .frame(height: self.itemHeight)
+                    .accessibilityElement(children: .contain)
                     .accessibilityIdentifier(TabAccessibilityIdentifier.tab)
             }
         }
