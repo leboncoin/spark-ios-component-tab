@@ -64,6 +64,7 @@ struct TabItemView: View {
             })
         .opacity(self.viewModel.tabStateAttributes.colors.opacity)
         .buttonStyle(PressedButtonStyle(isPressed: self.$viewModel.isPressed, animationDuration: 0.1))
+        .accessibilityAddTraits(self.viewModel.isSelected ? .isSelected : [])
     }
 
     // MARK: Private Functions
