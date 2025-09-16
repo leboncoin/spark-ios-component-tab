@@ -1,12 +1,12 @@
 //
 //  TabGetIntentColorUseCaseTests.swift
-//  SparkTabTests
+//  SparkComponentTabTests
 //
 //  Created by alican.aycil on 21.07.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
 //
 
-@testable import SparkTab
+@testable import SparkComponentTab
 import XCTest
 @_spi(SI_SPI) import SparkThemingTesting
 

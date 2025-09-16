@@ -1,14 +1,14 @@
 //
 //  TabViewModelTests.swift
-//  SparkTabTests
+//  SparkComponentTabTests
 //
 //  Created by michael.zimmermann on 01.09.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
 //
 
 import Combine
-@testable import SparkTab
-@_spi(SI_SPI) @testable import SparkTabTesting
+@testable import SparkComponentTab
+@_spi(SI_SPI) @testable import SparkComponentTabTesting
 @_spi(SI_SPI) import SparkCommon
 @_spi(SI_SPI) import SparkThemingTesting
 import XCTest

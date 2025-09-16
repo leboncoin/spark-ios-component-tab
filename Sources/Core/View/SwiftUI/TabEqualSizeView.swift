@@ -1,6 +1,6 @@
 //
 //  TabEqualSizeView.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by Michael Zimmermann on 17.01.24.
 //  Copyright © 2024 Leboncoin. All rights reserved.

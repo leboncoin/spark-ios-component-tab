@@ -1,6 +1,6 @@
 //
 //  TabItemUIView.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by michael.zimmermann on 31.07.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -167,7 +167,7 @@ public final class TabItemUIView: UIControl {
     /// The current theme of the view.
     ///
     /// By changing the theme, the colors and spacings of the tab item will change according to the new theme.
-    public var theme: Theme {
+    public var theme: any Theme {
         get {
             return self.viewModel.theme
         }
@@ -304,7 +304,7 @@ public final class TabItemUIView: UIControl {
     /// - content: the content of the tab item
     /// - apportionsSegmentWIdthsByContent: Indicates whether the control attempts to adjust segment widths based on their content widths.
     public convenience init(
-        theme: Theme,
+        theme: any Theme,
         intent: TabIntent = .basic,
         tabSize: TabSize = .md,
         content: TabUIItemContent,

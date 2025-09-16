@@ -1,6 +1,6 @@
 //
 //  TabGetStateAttributesUseCase.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by alican.aycil on 21.07.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -12,7 +12,7 @@ import SparkTheming
 
 // sourcery: AutoMockable
 protocol TabGetStateAttributesUseCasable {
-    func execute(theme: Theme,
+    func execute(theme: any Theme,
                  intent: TabIntent,
                  state: TabState,
                  tabSize: TabSize,
@@ -47,7 +47,7 @@ struct TabGetStateAttributesUseCase: TabGetStateAttributesUseCasable {
     ///    - size: `TabSize`
     ///
     /// - Returns: ``TabStateAttributes`` return attributes of the tab.
-    func execute(theme: Theme,
+    func execute(theme: any Theme,
                  intent: TabIntent,
                  state: TabState,
                  tabSize: TabSize,

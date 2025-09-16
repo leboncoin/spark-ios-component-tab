@@ -1,6 +1,6 @@
 //
 //  TabUIView.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by michael.zimmermann on 08.08.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -59,7 +59,7 @@ public final class TabUIView: UIControl {
     }
 
     /// The current theme
-    public var theme: Theme {
+    public var theme: any Theme {
         didSet {
             self.segments.forEach { tab in
                 tab.theme = theme
@@ -154,7 +154,7 @@ public final class TabUIView: UIControl {
     /// - titles: An array of labels.
     /// - apportionsSegmentWIdthsByContent: Indicates whether the control attempts to adjust segment widths based on their content widths.
     public convenience init(
-        theme: Theme,
+        theme: any Theme,
         intent: TabIntent = .basic,
         tabSize: TabSize = .md,
         titles: [String],
@@ -176,7 +176,7 @@ public final class TabUIView: UIControl {
     /// - icons: An array of images.
     /// - apportionsSegmentWIdthsByContent: Indicates whether the control attempts to adjust segment widths based on their content widths.
     public convenience init(
-        theme: Theme,
+        theme: any Theme,
         intent: TabIntent = .basic,
         tabSize: TabSize = .md,
         icons: [UIImage],
@@ -197,7 +197,7 @@ public final class TabUIView: UIControl {
     /// - tab size: the default value is `md`.
     /// - content: An array of TabUIItemContent with of image and string.
     /// - apportionsSegmentWIdthsByContent: Indicates whether the control attempts to adjust segment widths based on their content widths.
-    public init(theme: Theme,
+    public init(theme: any Theme,
          intent: TabIntent = .basic,
          tabSize: TabSize = .md,
          content: [TabUIItemContent],

@@ -1,6 +1,6 @@
 //
 //  TabsGetAttributesUseCase.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by michael.zimmermann on 30.08.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -11,7 +11,7 @@ import SparkTheming
 
 // sourcery: AutoMockable
 protocol TabsGetAttributesUseCaseable {
-    func execute(theme: Theme, size: TabSize, isEnabled: Bool) -> TabsAttributes
+    func execute(theme: any Theme, size: TabSize, isEnabled: Bool) -> TabsAttributes
 }
 
 /// TabGetColorUseCase
@@ -30,7 +30,7 @@ struct TabsGetAttributesUseCase: TabsGetAttributesUseCaseable {
     ///    - isEnabled: Bool.
     ///
     /// - Returns: ``TabsAttributes`` containing colors and line hight of the tab control.
-    func execute(theme: Theme, size: TabSize, isEnabled: Bool) -> TabsAttributes {
+    func execute(theme: any Theme, size: TabSize, isEnabled: Bool) -> TabsAttributes {
 
         var lineColor = theme.colors.base.outline
         if !isEnabled {

@@ -1,6 +1,6 @@
 //
 //  TabViewModel.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by michael.zimmermann on 30.08.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -15,7 +15,7 @@ final class TabViewModel<Content>: ObservableObject {
     private var useCase: any TabsGetAttributesUseCaseable
 
     // MARK: - Internal variables
-    var theme: Theme {
+    var theme: any Theme {
         didSet {
             self.tabsAttributes = self.useCase.execute(theme: theme, size: self.tabSize, isEnabled: self.isEnabled)
         }
@@ -25,7 +25,7 @@ final class TabViewModel<Content>: ObservableObject {
     // The whole tab is regarded as enabled, if all tabs are enabled.
     // When set, each tab will be disabled or enabled.
     // To disable a single tab, use the function `disableTab`.
-    private (set) var isEnabled: Bool {
+    private(set) var isEnabled: Bool {
         didSet {
             self.tabsAttributes = self.useCase.execute(theme: theme, size: self.tabSize, isEnabled: self.isEnabled)
         }
@@ -50,11 +50,11 @@ final class TabViewModel<Content>: ObservableObject {
     @Published var isScrollable = false
 
     // MARK: - Initializer
-    init(theme: some Theme,
+    init(theme: any Theme,
          apportionsSegmentWidthsByContent: Bool = false,
          content: [Content],
          tabSize: TabSize,
-         useCase: some TabsGetAttributesUseCaseable = TabsGetAttributesUseCase()
+         useCase: any TabsGetAttributesUseCaseable = TabsGetAttributesUseCase()
     ) {
         self.theme = theme
         self.tabSize = tabSize

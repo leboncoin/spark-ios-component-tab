@@ -1,6 +1,6 @@
 //
 //  TabItemView.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by michael.zimmermann on 04.09.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 @_spi(SI_SPI) import SparkCommon
-import SparkBadge
+import SparkComponentBadge
 
 /// A single tab item used on the tab view.
 struct TabItemView: View {

@@ -1,6 +1,6 @@
 //
 //  TabView.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by michael.zimmermann on 04.09.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -9,7 +9,7 @@
 import SwiftUI
 @_spi(SI_SPI) import SparkCommon
 import SparkTheming
-import SparkBadge
+import SparkComponentBadge
 
 /// TabView is the similar to a SegmentControl
 public struct TabView: View {
@@ -26,7 +26,7 @@ public struct TabView: View {
     /// - intent: the tab intent. The default value is `main`.
     /// - tabSize: The tab size, see `TabSize`. The default value is medium `md`.
     /// - titles: An array of labels.
-    public init(theme: Theme,
+    public init(theme: any Theme,
                 intent: TabIntent = .basic,
                 tabSize: TabSize = .md,
                 titles: [String],
@@ -45,7 +45,7 @@ public struct TabView: View {
     /// - intent: the tab intent. The default value is `main`.
     /// - tabSize: The tab size, see `TabSize`. The default value is medium `md`.
     /// - icons: An array of images.
-    public init(theme: Theme,
+    public init(theme: any Theme,
                 intent: TabIntent = .basic,
                 tabSize: TabSize = .md,
                 icons: [Image],
@@ -65,7 +65,7 @@ public struct TabView: View {
     /// - intent: the tab intent. The default value is `main`.
     /// - tab size: the default value is `md`.
     /// - An array of tuples of image and string.
-    public init(theme: Theme,
+    public init(theme: any Theme,
                 intent: TabIntent = .basic,
                 tabSize: TabSize = .md,
                 content: [TabItemContent] = [],
