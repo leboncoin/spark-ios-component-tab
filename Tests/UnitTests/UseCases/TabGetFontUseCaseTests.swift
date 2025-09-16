@@ -1,12 +1,12 @@
 //
 //  TabGetFontUseCaseTests.swift
-//  SparkTabTests
+//  SparkComponentTabTests
 //
 //  Created by michael.zimmermann on 02.08.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
 //
 
-@testable import SparkTab
+@testable import SparkComponentTab
 import XCTest
 @_spi(SI_SPI) import SparkThemingTesting
 

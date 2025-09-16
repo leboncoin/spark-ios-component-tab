@@ -1,6 +1,6 @@
 //
 //  TabGetIntentColorUseCase.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by alican.aycil on 21.07.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -24,7 +24,7 @@ struct TabGetIntentColorUseCase: TabGetIntentColorUseCaseble {
     /// Calculate the color of the tab depending on the intent
     ///
     /// - Parameters:
-    ///    - colors: Colors from the theme
+    ///    - colors: any Colors from the theme
     ///    - intent: `TabIntent`.
     ///
     /// - Returns: ``ColorToken`` return color of the tab.

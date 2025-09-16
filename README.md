@@ -18,7 +18,7 @@ You are a developer ? A technical documentation in _DocC_ is available [here](ht
 
 ### Swift Package Manager
 
-_Note: Instructions below are for using **SPM** without the Xcode UI. It's the easiest to go to your Project Settings -> Swift Packages and add SparkTab from there._
+_Note: Instructions below are for using **SPM** without the Xcode UI. It's the easiest to go to your Project Settings -> Swift Packages and add SparkComponentTab from there._
 
 To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`:
 
@@ -26,7 +26,7 @@ To integrate using Apple's Swift package manager, without Xcode integration, add
 .package(url: "https://github.com/leboncoin/spark-ios-component-tab.git", .upToNextMajor(from: "1.0.0"))
 ```
 
-and then specify `SparkTab` as a dependency of the Target in which you wish to use the SparkTab.
+and then specify `SparkComponentTab` as a dependency of the Target in which you wish to use the SparkComponentTab.
 
 Here's an example `Package.swift`:
 
@@ -55,7 +55,7 @@ let package = Package(
             name: "MyPackage",
             dependencies: [
                 .product(
-                    name: "SparkTab",
+                    name: "SparkComponentTab",
                     package: "spark-ios-component-tab"
                 ),
             ]

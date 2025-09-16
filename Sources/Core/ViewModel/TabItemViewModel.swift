@@ -1,6 +1,6 @@
 //
 //  TabItemViewModel.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by alican.aycil on 24.07.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -27,7 +27,7 @@ final class TabItemViewModel<Content>: ObservableObject where Content: TitleCont
     private let tabGetStateAttributesUseCase: TabGetStateAttributesUseCasable
 
     // MARK: Properties
-    var theme: Theme {
+    var theme: any Theme {
         didSet {
             self.updateStateAttributes()
         }
@@ -47,7 +47,7 @@ final class TabItemViewModel<Content>: ObservableObject where Content: TitleCont
         }
     }
 
-    private (set) var isEnabled: Bool {
+    private(set) var isEnabled: Bool {
         get {
             self.tabState.isEnabled
         }
@@ -56,7 +56,7 @@ final class TabItemViewModel<Content>: ObservableObject where Content: TitleCont
         }
     }
 
-    private (set) var isSelected: Bool {
+    private(set) var isSelected: Bool {
         get {
             self.tabState.isSelected
         }
@@ -92,7 +92,7 @@ final class TabItemViewModel<Content>: ObservableObject where Content: TitleCont
     /// - content: the `TabUIItemContent` contents of the tab item:
     /// - tabGetStateAttributesUseCase: `TabGetStateAttributesUseCasable` has a default value `TabGetStateAttributesUseCase`
     init(
-        theme: Theme,
+        theme: any Theme,
         intent: TabIntent = .basic,
         tabSize: TabSize = .md,
         tabState: TabState = .init(),

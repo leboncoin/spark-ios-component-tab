@@ -1,6 +1,6 @@
 //
 //  TabItemSpacings.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by alican.aycil on 28.07.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.

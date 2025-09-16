@@ -1,12 +1,12 @@
 //
 //  TabsGetAttributesUseCaseTests.swift
-//  SparkTabTests
+//  SparkComponentTabTests
 //
 //  Created by michael.zimmermann on 01.09.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
 //
 
-@testable import SparkTab
+@testable import SparkComponentTab
 import SparkTheming
 @_spi(SI_SPI) import SparkThemingTesting
 import XCTest
@@ -15,7 +15,7 @@ final class TabsGetAttributesUseCaseTests: XCTestCase {
 
     // MARK: - Properties
     var sut: TabsGetAttributesUseCase!
-    var theme: Theme!
+    var theme: (any Theme)!
 
     // MARK: - Setup
     override func setUp() {

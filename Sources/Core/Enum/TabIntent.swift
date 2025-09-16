@@ -1,6 +1,6 @@
 //
 //  TabIntent.swift
-//  SparkTab
+//  SparkComponentTab
 //
 //  Created by alican.aycil on 21.07.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.

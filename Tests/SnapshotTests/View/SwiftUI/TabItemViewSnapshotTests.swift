@@ -1,6 +1,6 @@
 //
 //  TabItemViewSnapshotTests.swift
-//  SparkTabTests
+//  SparkComponentTabTests
 //
 //  Created by michael.zimmermann on 13.09.23.
 //  Copyright © 2023 Leboncoin. All rights reserved.
@@ -8,10 +8,10 @@
 
 import SwiftUI
 import XCTest
-@testable import SparkTab
+@testable import SparkComponentTab
 import SparkTheme
 @_spi(SI_SPI) import SparkCommonSnapshotTesting
-import SparkBadge
+import SparkComponentBadge
 
 final class TabItemViewSnapshotTests: SwiftUIComponentSnapshotTestCase {
     // MARK: - Properties

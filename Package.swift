@@ -5,18 +5,18 @@ import PackageDescription
 
 // swiftlint:disable all
 let package = Package(
-    name: "SparkTab",
+    name: "SparkComponentTab",
     platforms: [
         .iOS(.v16)
     ],
     products: [
         .library(
-            name: "SparkTab",
-            targets: ["SparkTab"]
+            name: "SparkComponentTab",
+            targets: ["SparkComponentTab"]
         ),
         .library(
-            name: "SparkTabTesting",
-            targets: ["SparkTabTesting"]
+            name: "SparkComponentTabTesting",
+            targets: ["SparkComponentTabTesting"]
         )
     ],
     dependencies: [
@@ -38,7 +38,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SparkTab",
+            name: "SparkComponentTab",
             dependencies: [
                 .product(
                     name: "SparkCommon",
@@ -49,16 +49,16 @@ let package = Package(
                     package: "spark-ios-theming"
                 ),
                 .product(
-                    name: "SparkBadge",
+                    name: "SparkComponentBadge",
                     package: "spark-ios-component-badge"
                 )
             ],
             path: "Sources/Core"
         ),
         .target(
-            name: "SparkTabTesting",
+            name: "SparkComponentTabTesting",
             dependencies: [
-                "SparkTab",
+                "SparkComponentTab",
                 .product(
                     name: "SparkCommon",
                     package: "spark-ios-common"
@@ -79,10 +79,10 @@ let package = Package(
             path: "Sources/Testing"
         ),
         .testTarget(
-            name: "SparkTabUnitTests",
+            name: "SparkComponentTabUnitTests",
             dependencies: [
-                "SparkTab",
-                "SparkTabTesting",
+                "SparkComponentTab",
+                "SparkComponentTabTesting",
                 .product(
                     name: "SparkCommonTesting",
                     package: "spark-ios-common"
@@ -95,10 +95,10 @@ let package = Package(
             path: "Tests/UnitTests"
         ),
         .testTarget(
-            name: "SparkTabSnapshotTests",
+            name: "SparkComponentTabSnapshotTests",
             dependencies: [
-                "SparkTab",
-                "SparkTabTesting",
+                "SparkComponentTab",
+                "SparkComponentTabTesting",
                 .product(
                     name: "SparkCommonSnapshotTesting",
                     package: "spark-ios-common"
