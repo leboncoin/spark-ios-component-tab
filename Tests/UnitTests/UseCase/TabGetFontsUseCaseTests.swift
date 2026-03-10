@@ -2,7 +2,7 @@
 //  TabGetFontsUseCaseTests.swift
 //  SparkComponentTabTests
 //
-//  Created by robin.lemaire on 23.02.26.
+//  Created by robin.lemaire on 23/02/2026.
 //  Copyright © 2026 Leboncoin. All rights reserved.
 //
 

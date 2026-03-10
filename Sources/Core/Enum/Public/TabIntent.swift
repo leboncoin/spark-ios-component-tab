@@ -16,5 +16,6 @@ public enum TabIntent: CaseIterable {
 
     // MARK: - Properties
 
+    /// The defautl value. Equals to **.basic**
     public static let `default`: TabIntent = .basic
 }
