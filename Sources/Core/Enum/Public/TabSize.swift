@@ -29,5 +29,6 @@ public enum TabSize: CaseIterable {
         .medium
     ]
 
+    /// The defautl value. Equals to **.medium**
     public static let `default`: TabSize = .medium
 }
