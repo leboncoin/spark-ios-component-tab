@@ -48,7 +48,7 @@ let package = Package(
                     name: "SparkTheming",
                     package: "spark-ios-theming"
                 ),
-                .product(
+                .product( // TODO: Remove ASAP the Badge dependencie here.
                     name: "SparkComponentBadge",
                     package: "spark-ios-component-badge"
                 )

@@ -2,87 +2,156 @@
 //  TabViewModel.swift
 //  SparkComponentTab
 //
-//  Created by michael.zimmermann on 30.08.23.
-//  Copyright © 2023 Leboncoin. All rights reserved.
+//  Created by robin.lemaire on 23/02/2026.
+//  Copyright © 2026 Leboncoin. All rights reserved.
 //
 
-import Combine
-import SparkTheming
+import SwiftUI
+@_spi(SI_SPI) import SparkTheming
 
-final class TabViewModel<Content>: ObservableObject {
+// sourcery: AutoPublisherTest, AutoViewModelStub
+final class TabViewModel: ObservableObject {
 
-    // MARK: - Private variables
-    private var useCase: any TabsGetAttributesUseCaseable
+    // MARK: - Published Properties
 
-    // MARK: - Internal variables
-    var theme: any Theme {
+    @Published private(set) var linesColors = TabLinesColors()
+    @Published private(set) var accessibilityColors = TabAccessibilityColors()
+    @Published private(set) var sizes = TabSizes()
+    @Published private(set) var layout = TabLayout()
+    @Published private(set) var dim: CGFloat = .zero
+
+    // MARK: - Properties
+
+    var theme: (any Theme)? {
         didSet {
-            self.tabsAttributes = self.useCase.execute(theme: theme, size: self.tabSize, isEnabled: self.isEnabled)
+            guard !oldValue.equals(self.theme), self.alreadyUpdateAll else { return }
+
+            self.setLinesColors()
+            self.setAccessibilityColors()
+            self.setLayout()
+            self.setSizes()
+            self.setDim()
         }
     }
 
-    // Disable/Enable each tab in the tab control.
-    // The whole tab is regarded as enabled, if all tabs are enabled.
-    // When set, each tab will be disabled or enabled.
-    // To disable a single tab, use the function `disableTab`.
-    private(set) var isEnabled: Bool {
+    var intent: TabIntent? {
         didSet {
-            self.tabsAttributes = self.useCase.execute(theme: theme, size: self.tabSize, isEnabled: self.isEnabled)
+            guard oldValue != self.intent, self.alreadyUpdateAll else { return }
+
+            self.setLinesColors()
+            self.setAccessibilityColors()
         }
     }
 
-    var tabSize: TabSize {
+    var size: TabSize? {
         didSet {
-            guard self.tabSize != oldValue else { return }
-            self.tabsAttributes = self.useCase.execute(theme: theme, size: self.tabSize, isEnabled: self.isEnabled)
+            guard oldValue != self.size, self.alreadyUpdateAll else { return }
+
+            self.setSizes()
         }
     }
 
-    var numberOfTabs: Int {
-        return self.content.count
+    var isEnabled: Bool? {
+        didSet {
+            guard oldValue != self.isEnabled, self.alreadyUpdateAll else { return }
+
+            self.setDim()
+        }
     }
 
-    // MARK: - Published variables
-    @Published var disabledTabs: [Bool]
-    @Published var apportionsSegmentWidthsByContent: Bool = false
-    @Published var tabsAttributes: TabsAttributes
-    @Published var content: [Content]
-    @Published var isScrollable = false
+    // MARK: - Private properties
 
-    // MARK: - Initializer
-    init(theme: any Theme,
-         apportionsSegmentWidthsByContent: Bool = false,
-         content: [Content],
-         tabSize: TabSize,
-         useCase: any TabsGetAttributesUseCaseable = TabsGetAttributesUseCase()
+    private var alreadyUpdateAll = false
+
+    // MARK: - Use Case Properties
+
+    private let getLinesColorsUseCase: any TabGetLinesColorsUseCaseable
+    private let getAccessibilityColorsUseCase: any TabAccessibilityColorsUseCaseable
+    private let getLayoutUseCase: any TabGetLayoutUseCaseable
+    private let getSizesUseCase: any TabGetSizesUseCaseable
+    private let getDimUseCase: any TabGetDimUseCaseable
+
+    // MARK: - Initialization
+
+    init(
+        getLinesColorsUseCase: any TabGetLinesColorsUseCaseable = TabGetLinesColorsUseCase(),
+        getAccessibilityColorsUseCase: any TabAccessibilityColorsUseCaseable = TabAccessibilityColorsUseCase(),
+        getLayoutUseCase: any TabGetLayoutUseCaseable = TabGetLayoutUseCase(),
+        getSizesUseCase: any TabGetSizesUseCaseable = TabGetSizesUseCase(),
+        getDimUseCase: any TabGetDimUseCaseable = TabGetDimUseCase()
+    ) {
+        self.getLinesColorsUseCase = getLinesColorsUseCase
+        self.getAccessibilityColorsUseCase = getAccessibilityColorsUseCase
+        self.getLayoutUseCase = getLayoutUseCase
+        self.getSizesUseCase = getSizesUseCase
+        self.getDimUseCase = getDimUseCase
+    }
+
+    // MARK: - Setup
+
+    func setup(
+        theme: any Theme,
+        intent: TabIntent,
+        size: TabSize,
+        isEnabled: Bool
     ) {
         self.theme = theme
-        self.tabSize = tabSize
-        self.apportionsSegmentWidthsByContent = apportionsSegmentWidthsByContent
-        self.useCase = useCase
-        self.content = content
-        self.disabledTabs = content.map{ _ in return false }
-        self.tabsAttributes = useCase.execute(theme: theme, size: tabSize, isEnabled: true)
-        self.isEnabled = true
-    }
-
-    // Disable or enable a single tab.
-    func disableTab(_ disabled: Bool, index: Int) {
-        guard index < self.content.count else { return }
-        guard self.disabledTabs[index] != disabled else { return }
-
-        self.disabledTabs[index] = disabled
-    }
-
-    func isTabEnabled(index: Int) -> Bool {
-        return !self.disabledTabs[index] && self.isEnabled
-    }
-
-    @discardableResult
-    func setIsEnabled(_ isEnabled: Bool) -> Self {
-        guard self.isEnabled != isEnabled else { return self }
-
+        self.intent = intent
+        self.size = size
         self.isEnabled = isEnabled
-        return self
+
+        self.setLinesColors()
+        self.setAccessibilityColors()
+        self.setLayout()
+        self.setSizes()
+        self.setDim()
+
+        self.alreadyUpdateAll = true
+    }
+
+    // MARK: - Private Setter
+
+    private func setLinesColors() {
+        guard let theme, let intent else { return }
+
+        self.linesColors = self.getLinesColorsUseCase.execute(
+            theme: theme,
+            intent: intent
+        )
+    }
+
+    private func setAccessibilityColors() {
+        guard let theme, let intent else { return }
+
+        self.accessibilityColors = self.getAccessibilityColorsUseCase.execute(
+            theme: theme,
+            intent: intent
+        )
+    }
+
+    private func setLayout() {
+        guard let theme else { return }
+
+        self.layout = self.getLayoutUseCase.execute(
+            theme: theme
+        )
+    }
+
+    private func setSizes() {
+        guard let theme, let size else { return }
+
+        self.sizes = self.getSizesUseCase.execute(
+            theme: theme,
+            size: size
+        )
+    }
+
+    private func setDim() {
+        guard let theme, let isEnabled else { return }
+
+        self.dim = self.getDimUseCase.execute(
+            theme: theme,
+            isEnabled: isEnabled
+        )
     }
 }
