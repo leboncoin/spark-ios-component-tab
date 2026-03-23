@@ -93,7 +93,7 @@ final class TabSegmentViewModelDeprecated<Content>: ObservableObject where Conte
     /// - tabGetStateAttributesUseCase: `TabGetStateAttributesUseCasableDeprecated` has a default value `TabGetStateAttributesUseCase`
     init(
         theme: any Theme,
-        intent: TabIntent = .basic,
+        intent: TabIntent = .default,
         tabSize: TabSize = .md,
         tabState: TabStateDeprecated = .init(),
         content: Content,

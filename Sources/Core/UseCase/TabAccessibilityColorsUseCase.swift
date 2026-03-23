@@ -23,11 +23,6 @@ struct TabAccessibilityColorsUseCase: TabAccessibilityColorsUseCaseable {
         let colors = theme.colors
 
         return switch intent {
-        case .basic: .init(
-            selectedTintcolorToken: colors.basic.onBasic,
-            selectedBackgroundColorToken: colors.basic.basic
-        )
-
         case .main: .init(
             selectedTintcolorToken: colors.main.onMain,
             selectedBackgroundColorToken: colors.main.main

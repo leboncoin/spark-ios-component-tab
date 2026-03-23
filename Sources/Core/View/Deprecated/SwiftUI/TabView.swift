@@ -24,11 +24,11 @@ public struct TabView: View {
     /// Initializer
     /// - Parameters:
     /// - theme: the current theme
-    /// - intent: the tab intent. The default value is `main`.
+    /// - intent: the tab intent. The default value is `default`.
     /// - tabSize: The tab size, see `TabSize`. The default value is medium `md`.
     /// - titles: An array of labels.
     public init(theme: any Theme,
-                intent: TabIntent = .basic,
+                intent: TabIntent = .default,
                 tabSize: TabSize = .md,
                 titles: [String],
                 selectedIndex: Binding<Int>
@@ -43,11 +43,11 @@ public struct TabView: View {
     /// Initializer
     /// - Parameters:
     /// - theme: the current theme
-    /// - intent: the tab intent. The default value is `main`.
+    /// - intent: the tab intent. The default value is `default`.
     /// - tabSize: The tab size, see `TabSize`. The default value is medium `md`.
     /// - icons: An array of images.
     public init(theme: any Theme,
-                intent: TabIntent = .basic,
+                intent: TabIntent = .default,
                 tabSize: TabSize = .md,
                 icons: [Image],
                 selectedIndex: Binding<Int>
@@ -63,11 +63,11 @@ public struct TabView: View {
     /// Initializer
     /// - Parameters:
     /// - theme: the current theme
-    /// - intent: the tab intent. The default value is `main`.
+    /// - intent: the tab intent. The default value is `default`.
     /// - tab size: the default value is `md`.
     /// - An array of tuples of image and string.
     public init(theme: any Theme,
-                intent: TabIntent = .basic,
+                intent: TabIntent = .default,
                 tabSize: TabSize = .md,
                 content: [TabItemContent] = [],
                 selectedIndex: Binding<Int>

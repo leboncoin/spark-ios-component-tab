@@ -301,12 +301,12 @@ public final class TabItemUIView: UIControl {
     ///
     /// - Parameters:
     /// - theme: the current theme, which will determine the colors and spacings
-    /// - intent: the intent of the tab item, the default is basic
+    /// - intent: the intent of the tab item, the default is *.default*
     /// - content: the content of the tab item
     /// - apportionsSegmentWIdthsByContent: Indicates whether the control attempts to adjust segment widths based on their content widths.
     public convenience init(
         theme: any Theme,
-        intent: TabIntent = .basic,
+        intent: TabIntent = .default,
         tabSize: TabSize = .md,
         content: TabUISegmentContent,
         apportionsSegmentWidthsByContent: Bool = false
