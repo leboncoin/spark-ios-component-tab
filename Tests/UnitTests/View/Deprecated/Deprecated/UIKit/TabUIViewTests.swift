@@ -49,7 +49,7 @@ final class TabUIViewTests: XCTestCase {
         }
 
         // When
-        self.sut.intent = .support
+        self.sut.intent = .main
 
         // Then
         waitForExpectations(timeout: 1)

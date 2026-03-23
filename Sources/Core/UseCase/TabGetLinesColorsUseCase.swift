@@ -23,7 +23,6 @@ struct TabGetLinesColorsUseCase: TabGetLinesColorsUseCaseable {
         let colors = theme.colors
 
         let selectedColorToken: any ColorToken = switch intent {
-        case .basic: colors.basic.basic
         case .main: colors.main.main
         case .support: colors.support.support
         }

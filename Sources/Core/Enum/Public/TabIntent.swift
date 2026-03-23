@@ -10,12 +10,11 @@ import Foundation
 
 /// `TabIntent` determines the color of the tab tint color.
 public enum TabIntent: CaseIterable {
-    case basic
     case main
     case support
 
     // MARK: - Properties
 
-    /// The defautl value. Equals to **.basic**
-    public static let `default`: TabIntent = .basic
+    /// The defautl value. Equals to **.support**
+    public static let `default`: TabIntent = .support
 }

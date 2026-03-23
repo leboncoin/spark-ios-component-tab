@@ -31,7 +31,7 @@ struct TabGetContentColorsUseCaseTests {
     @Test("Is pressed false")
     func isPressedFalse() throws {
         // GIVEN / WHEN
-        let colors = sut.execute(theme: self.theme, intent: .basic, isSelected: true, isPressed: false)
+        let colors = sut.execute(theme: self.theme, intent: .default, isSelected: true, isPressed: false)
 
         // THEN
         #expect(colors.backgroundColorToken.equals(ColorTokenClear()))
@@ -40,7 +40,7 @@ struct TabGetContentColorsUseCaseTests {
     @Test("Is pressed true")
     func isPressedTrue() throws {
         // GIVEN / WHEN
-        let colors = sut.execute(theme: self.theme, intent: .basic, isSelected: true, isPressed: true)
+        let colors = sut.execute(theme: self.theme, intent: .default, isSelected: true, isPressed: true)
 
         // THEN
         #expect(colors.backgroundColorToken.equals(self.theme.colors.states.surfacePressed))
@@ -49,19 +49,10 @@ struct TabGetContentColorsUseCaseTests {
     @Test("Is selected false")
     func isSelectedFalse() throws {
         // GIVEN / WHEN
-        let colors = sut.execute(theme: self.theme, intent: .basic, isSelected: false, isPressed: false)
+        let colors = sut.execute(theme: self.theme, intent: .default, isSelected: false, isPressed: false)
 
         // THEN
         #expect(colors.tintColorToken.equals(self.theme.colors.base.onSurface))
-    }
-
-    @Test("Is selected true intent basic")
-    func isSelectedTrueIntentBasic() throws {
-        // GIVEN / WHEN
-        let colors = sut.execute(theme: self.theme, intent: .basic, isSelected: true, isPressed: false)
-
-        // THEN
-        #expect(colors.tintColorToken.equals(self.theme.colors.basic.basic))
     }
 
     @Test("Is selected true intent main")

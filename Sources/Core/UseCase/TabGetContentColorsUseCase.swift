@@ -42,7 +42,6 @@ struct TabGetContentColorsUseCase: TabGetContentColorsUseCaseable {
             colors.base.onSurface
         } else {
             switch intent {
-            case .basic: colors.basic.basic
             case .main: colors.main.main
             case .support: colors.support.support
             }

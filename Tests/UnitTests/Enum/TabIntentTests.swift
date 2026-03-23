@@ -17,16 +17,16 @@ struct TabIntentTests {
     @Test("All cases contains expected cases")
     func allCasesContainsExpectedCases() {
         // GIVEN
-        let expectedCases: [TabIntent] = [.basic, .main, .support]
+        let expectedCases: [TabIntent] = [.main, .support]
 
         // WHEN / THEN
         #expect(TabIntent.allCases.count == expectedCases.count)
         #expect(Set(TabIntent.allCases) == Set(expectedCases))
     }
 
-    @Test("Default value is basic")
-    func defaultValueIsBasic() {
+    @Test("Default value is support")
+    func defaultValueIsSupport() {
         // GIVEN / WHEN / THEN
-        #expect(TabIntent.default == .basic)
+        #expect(TabIntent.default == .support)
     }
 }

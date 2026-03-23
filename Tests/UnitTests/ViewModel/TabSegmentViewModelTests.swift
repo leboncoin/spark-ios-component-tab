@@ -125,7 +125,7 @@ final class TabSegmentViewModelTests: XCTestCase {
         viewModel.setup(stub: stub)
         stub.resetMockedData()
 
-        let newIntent = TabIntent.support
+        let newIntent = TabIntent.main
 
         // WHEN
         viewModel.intent = newIntent
@@ -336,7 +336,7 @@ private final class Stub {
     // MARK: - Given
 
     let givenTheme = ThemeGeneratedMock.mocked()
-    let givenIntent: TabIntent = .basic
+    let givenIntent: TabIntent = .support
     let givenSize: TabSize = .medium
     let givenIsEnabled: Bool = true
     let givenIsSelected: Bool = true

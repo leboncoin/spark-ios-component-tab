@@ -150,13 +150,13 @@ public final class TabUIView: UIControl {
     /// Initializer
     /// - Parameters:
     /// - theme: the current theme
-    /// - intent: the tab intent. The default value is `basic`.
+    /// - intent: the tab intent. The default value is `default`.
     /// - tabSize: The tab size, see `TabSize`. The default value is medium `md`.
     /// - titles: An array of labels.
     /// - apportionsSegmentWIdthsByContent: Indicates whether the control attempts to adjust segment widths based on their content widths.
     public convenience init(
         theme: any Theme,
-        intent: TabIntent = .basic,
+        intent: TabIntent = .default,
         tabSize: TabSize = .md,
         titles: [String],
         apportionsSegmentWidthsByContent: Bool = false
@@ -172,13 +172,13 @@ public final class TabUIView: UIControl {
     /// Initializer
     /// - Parameters:
     /// - theme: the current theme
-    /// - intent: the tab intent. The default value is `basic`.
+    /// - intent: the tab intent. The default value is `default`.
     /// - tabSize: The tab size, see `TabSize`. The default value is medium `md`.
     /// - icons: An array of images.
     /// - apportionsSegmentWIdthsByContent: Indicates whether the control attempts to adjust segment widths based on their content widths.
     public convenience init(
         theme: any Theme,
-        intent: TabIntent = .basic,
+        intent: TabIntent = .default,
         tabSize: TabSize = .md,
         icons: [UIImage],
         apportionsSegmentWidthsByContent: Bool = false
@@ -194,12 +194,12 @@ public final class TabUIView: UIControl {
     /// Initializer
     /// - Parameters:
     /// - theme: the current theme
-    /// - intent: the tab intent. The default value is `basic`.
+    /// - intent: the tab intent. The default value is `default`.
     /// - tab size: the default value is `md`.
     /// - content: An array of TabUISegmentContent with of image and string.
     /// - apportionsSegmentWIdthsByContent: Indicates whether the control attempts to adjust segment widths based on their content widths.
     public init(theme: any Theme,
-         intent: TabIntent = .basic,
+         intent: TabIntent = .default,
          tabSize: TabSize = .md,
          content: [TabUISegmentContent],
          apportionsSegmentWidthsByContent: Bool = false

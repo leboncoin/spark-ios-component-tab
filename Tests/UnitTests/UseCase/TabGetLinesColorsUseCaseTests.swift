@@ -27,20 +27,6 @@ struct TabGetLinesColorsUseCaseTests {
 
     // MARK: - Tests
 
-    @Test("Intent basic")
-    func intentBasic() throws {
-        // GIVEN / WHEN
-        let colors = sut.execute(theme: self.theme, intent: .basic)
-
-        // THEN
-        let expectedColors = TabLinesColors(
-            colorToken: self.theme.colors.base.outline,
-            selectedColorToken: self.theme.colors.basic.basic
-        )
-
-        #expect(colors == expectedColors)
-    }
-
     @Test("Intent main")
     func intentMain() throws {
         // GIVEN / WHEN

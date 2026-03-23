@@ -28,16 +28,6 @@ struct TabAccessibilityColorsUseCaseTests {
 
     // MARK: - Tests
 
-    @Test("Execute intent basic")
-    func executeIntentBasic() throws {
-        // GIVEN / WHEN
-        let colors = sut.execute(theme: self.theme, intent: .basic)
-
-        // THEN
-        #expect(colors.selectedTintcolorToken.equals(self.theme.colors.basic.onBasic))
-        #expect(colors.selectedBackgroundColorToken.equals(self.theme.colors.basic.basic))
-    }
-
     @Test("Execute intent main")
     func executeIntentMain() throws {
         // GIVEN / WHEN
