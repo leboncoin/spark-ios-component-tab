@@ -86,7 +86,7 @@ public final class TabItemUIView: UIControl {
     @ScaledUIMetric var height: CGFloat
     @ScaledUIMetric private var iconHeight: CGFloat
 
-    @ObservedObject var viewModel: TabSegmentViewModelDeprecated<TabUISegmentContent>
+    @ObservedObject var viewModel: TabSegmentViewModelDeprecated<TabUIItemContent>
 
     // MARK: - Public variables
     /// The label shown in the tab item.
@@ -308,7 +308,7 @@ public final class TabItemUIView: UIControl {
         theme: any Theme,
         intent: TabIntent = .default,
         tabSize: TabSize = .md,
-        content: TabUISegmentContent,
+        content: TabUIItemContent,
         apportionsSegmentWidthsByContent: Bool = false
     ) {
         let viewModel = TabSegmentViewModelDeprecated(
@@ -322,7 +322,7 @@ public final class TabItemUIView: UIControl {
     }
 
     internal init(
-        viewModel: TabSegmentViewModelDeprecated<TabUISegmentContent>
+        viewModel: TabSegmentViewModelDeprecated<TabUIItemContent>
     ) {
 
         self.viewModel = viewModel

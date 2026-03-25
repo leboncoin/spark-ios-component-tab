@@ -89,7 +89,7 @@ final class TabSegmentViewModelDeprecated<Content>: ObservableObject where Conte
     /// - theme: the current `Theme`
     /// - intent: the `TabIntent`, which will determine the color of the tab item's tint color
     /// - tabState: the `TabStateDeprecated` determines the current state of the tab.
-    /// - content: the `TabUISegmentContent` contents of the tab item:
+    /// - content: the `TabUIItemContent` contents of the tab item:
     /// - tabGetStateAttributesUseCase: `TabGetStateAttributesUseCasableDeprecated` has a default value `TabGetStateAttributesUseCase`
     init(
         theme: any Theme,
