@@ -306,7 +306,7 @@ private extension TabSegmentViewModelDeprecatedTests {
         size: TabSize = .md,
         icon: UIImage? = nil,
         title: String? = nil
-    ) -> TabSegmentViewModelDeprecated<TabUISegmentContent> {
+    ) -> TabSegmentViewModelDeprecated<TabUIItemContent> {
         return TabSegmentViewModelDeprecated(
             theme: self.theme,
             intent: intent,

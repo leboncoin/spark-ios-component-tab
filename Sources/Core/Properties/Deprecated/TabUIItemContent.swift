@@ -1,5 +1,5 @@
 //
-//  TabItemContent.swift
+//  TabUIItemContent.swift
 //  SparkComponentTab
 //
 //  Created by alican.aycil on 25.07.23.
@@ -13,7 +13,7 @@ import UIKit
 /// - icon: The icon of the tab item
 /// - text: The text of the tab item.
 @available(*, deprecated, message: "Not used anymore by SparkTab or SparkUITab")
-public struct TabUISegmentContent: TitleContaining, Equatable, Updateable {
+public struct TabUIItemContent: TitleContaining, Equatable, Updateable {
     public var icon: UIImage?
     public var title: String?
 

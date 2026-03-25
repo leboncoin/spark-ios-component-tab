@@ -45,7 +45,7 @@ public final class TabUIView: UIControl {
     }()
 
     private let selectedIndexSubject = PassthroughSubject<Int, Never>()
-    private let viewModel: TabViewModelDeprecated<TabUISegmentContent>
+    private let viewModel: TabViewModelDeprecated<TabUIItemContent>
     private var widthConstraint: NSLayoutConstraint?
     private var bottomLineHeightConstraint: NSLayoutConstraint?
     private var subscriptions = Set<AnyCancellable>()
@@ -165,7 +165,7 @@ public final class TabUIView: UIControl {
             theme: theme,
             intent: intent,
             tabSize: tabSize,
-            content: titles.map(TabUISegmentContent.init(title:)),
+            content: titles.map(TabUIItemContent.init(title:)),
             apportionsSegmentWidthsByContent: apportionsSegmentWidthsByContent)
     }
 
@@ -186,7 +186,7 @@ public final class TabUIView: UIControl {
         self.init(theme: theme,
                   intent: intent,
                   tabSize: tabSize,
-                  content: icons.map(TabUISegmentContent.init(icon:)),
+                  content: icons.map(TabUIItemContent.init(icon:)),
                   apportionsSegmentWidthsByContent: apportionsSegmentWidthsByContent
         )
     }
@@ -196,12 +196,12 @@ public final class TabUIView: UIControl {
     /// - theme: the current theme
     /// - intent: the tab intent. The default value is `default`.
     /// - tab size: the default value is `md`.
-    /// - content: An array of TabUISegmentContent with of image and string.
+    /// - content: An array of TabUIItemContent with of image and string.
     /// - apportionsSegmentWIdthsByContent: Indicates whether the control attempts to adjust segment widths based on their content widths.
     public init(theme: any Theme,
          intent: TabIntent = .default,
          tabSize: TabSize = .md,
-         content: [TabUISegmentContent],
+         content: [TabUIItemContent],
          apportionsSegmentWidthsByContent: Bool = false
     ) {
 
@@ -400,18 +400,18 @@ public final class TabUIView: UIControl {
 
     /// Replace all current segments with segments with just icons
     public func setSegments(withImages icons: [UIImage]) {
-        let content: [TabUISegmentContent] = icons.map{ .init(icon: $0, title: nil) }
+        let content: [TabUIItemContent] = icons.map{ .init(icon: $0, title: nil) }
         self.setTabItems(content: content)
     }
 
     /// Replace all current segments with segments with just titles
     public func setSegments(withTitles titles: [String]) {
-        let content: [TabUISegmentContent] = titles.map{ .init(icon: nil, title: $0) }
+        let content: [TabUIItemContent] = titles.map{ .init(icon: nil, title: $0) }
         self.setTabItems(content: content)
     }
 
     /// Replace all current segments with segments with icons & titles
-    public func setSegments(withContent content: [TabUISegmentContent]) {
+    public func setSegments(withContent content: [TabUIItemContent]) {
         self.setTabItems(content: content)
     }
 
@@ -471,7 +471,7 @@ public final class TabUIView: UIControl {
     }
 
     // MARK: - Private Functions
-    private func setupViews(items: [TabUISegmentContent]) {
+    private func setupViews(items: [TabUIItemContent]) {
         let tabItemViews = items.map{ item in
             return TabItemUIView(
                 theme: theme,
@@ -531,7 +531,7 @@ public final class TabUIView: UIControl {
         self.accessibilityContainerType = .semanticGroup
     }
 
-    private func setTabItems(content: [TabUISegmentContent]) {
+    private func setTabItems(content: [TabUIItemContent]) {
         self.viewModel.content = content
 
         let items = content.map {
